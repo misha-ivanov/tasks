@@ -38,15 +38,15 @@ char* mi_strcat(char* destination, const char* source)
 		return destination;
 	}
 		int length = 0, counter = 0;
-			while (destination[counter] != '\0')
-				counter++;
-			length = counter;
-			counter = 0;
-			while (source[counter] != '\0')
-				counter++;
+		while (destination[counter] != '\0')
 			counter++;
-			length = length + counter; //memory of word in byte (including '\0')
-			counter = 0;
+		length = counter;
+		counter = 0;
+		while (source[counter] != '\0')
+			counter++;
+		counter++;
+		length = length + counter; //memory of word in byte (including '\0')
+		counter = 0;
 
 		char* str = new char[length]; //creating the word
 		str[length - 1] = '\0';
@@ -64,6 +64,4 @@ char* mi_strcat(char* destination, const char* source)
 			counter++;
 		}
 		return str;
-	
-	
 }

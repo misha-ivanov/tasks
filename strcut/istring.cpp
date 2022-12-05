@@ -16,9 +16,3 @@ char* istring()
 	tmp_str[length] = '\0';
 	return tmp_str;
 }
-
-/*
-"abc" - [a][b][c][\0]
-"xyz" - [x][y][z][\0]
-strcat("abc", "xyz") - [a][b][c][x][y][z][\0]
-*/

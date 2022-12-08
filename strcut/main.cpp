@@ -11,8 +11,10 @@
  */
 
 #include <iostream>
-#include "istring.h"
-#include "ostring.h"
+
+char* istring();
+
+void ostring(char* string);
 
 char* mi_strcat(char* destination, const char* source);
 
@@ -25,10 +27,30 @@ int main()
 	char* str_final;
 	str_a = istring();
 	str_b = istring();
-	str_final = mi_strcat(NULL, str_b);
+	str_final = mi_strcat(str_a, str_b);
 	ostring(str_final);
 
 	return 0;
+}
+
+
+char* istring()
+{
+	int length;
+	char* tmp_str;
+	cout << "Enter a length of string:" << endl;
+	cin >> length;
+	tmp_str = new char[length + 1];
+	cout << "Enter a string:" << endl;
+	for (int i = 0; i < length; i++)
+		cin >> tmp_str[i];
+	tmp_str[length] = '\0';
+	return tmp_str;
+}
+
+void ostring(char* str)
+{
+	cout << str;
 }
 
 char* mi_strcat(char* destination, const char* source)

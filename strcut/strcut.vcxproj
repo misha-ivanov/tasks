@@ -140,13 +140,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="istring.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="ostring.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="istring.h" />
-    <ClInclude Include="ostring.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

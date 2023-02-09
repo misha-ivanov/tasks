@@ -12,16 +12,34 @@
 
 using namespace std;
 
+const int N = 3;
+
+struct Test {
+	int input[N];
+	int result[N];
+}; 
+
 int main()
 {
-	int data, result = 0;
-	cout << "Enter the number" << endl;
-	cin >> data;
-	while (data != 0)
+	Test test = 
+		{ 
+		{0, 102, 100},
+		{0, 201, 1} 
+		};
+	int data, result;
+	for (int i = 0; i < N; i++)
 	{
-		result = 10 * result + data % 10;
-		data = int(data / 10);
+		data = test.input[i];
+		result = 0;
+		while (data != 0)
+		{
+			result = 10 * result + data % 10;
+			data = int(data / 10);
+		}
+		if (result == test.result[i])
+			cout << "Test " << i << ": success" << endl;
+		else
+			cout << "Test " << i << ": failed" << endl;
 	}
-	cout << "Inverted number is: " << result;
 	return 0;
 }

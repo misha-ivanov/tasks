@@ -12,60 +12,40 @@
 
 #include <iostream>
 
-const int N = 3; // quantity of tests
+void ostring(const char* string);
+const char* mi_strcat(const char* destination, const char* source, const char* result);
 
-char* istring();
-
-void ostring(char* string);
-
-char* mi_strcat(char* destination, const char* source, const char* result);
-
-struct Test {
-	char str[2][N][5];
-	char result[N][10];
+struct test{
+	const char* str1;
+	const char* str2;
+	const char* result;
 };
 
 using namespace std;
 
 int main()
 {
-	Test test = { {{"test", "" , NULL}, {"one", "two", NULL}}, {"testone", "two", NULL}};
-	//char* str_a;
-	//char* str_b;
-	char* str_final;
-	//str_a = istring();
-	//str_b = istring();
+	test strcat_test[] = {{"test", "" , "test"}, {"one", "two", "onetwo"}, {"", "", ""}};
+	int N = sizeof(strcat_test) / sizeof(strcat_test[0]);
+	const char* str_final;
 	for (int i = 0; i < N; i++)
 	{
 		cout << "Test " << i;
-		str_final = mi_strcat(test.str[0][i], test.str[1][i], test.result[i]);
-		ostring(test.result[i]);
+		str_final = mi_strcat(strcat_test[i].str1, strcat_test[i].str2, strcat_test[i].result);
+		ostring(strcat_test[i].result);
 		ostring(str_final);
+		cout << endl;
 	}
 	return 0;
 }
 
 
-/*char* istring()
-{
-	int length;
-	char* tmp_str;
-	cout << "Enter a length of string:" << endl;
-	cin >> length;
-	tmp_str = new char[length + 1];
-	cout << "Enter a string:" << endl;
-	for (int i = 0; i < length; i++)
-		cin >> tmp_str[i];
-	tmp_str[length] = '\0';
-	return tmp_str;
-}*/
-
-void ostring(char* str)
+void ostring(const char* str)
 {
 	cout << str;
 }
 
-char* mi_strcat(char* destination, const char* source, const char* result)
+const char* mi_strcat(const char* destination, const char* source, const char* result)
 {
 	if ((destination == NULL) || (source == NULL))
 	{
